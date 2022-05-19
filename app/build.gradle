@@ -47,5 +47,9 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.0.1')
     implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
 
+    // for adding recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
+    // for adding cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
 }
