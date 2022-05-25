@@ -7,12 +7,12 @@ import retrofit2.http.GET
 
 interface ApiInterface {
 
-    @GET("volley_array.json")
-    fun getMovies() : Call<List<Movie>>
+    @GET("api/users/2")
+    fun getMovies() : Call<TestingDataClass>
 
     companion object {
 
-        var BASE_URL = "http://velmm.com/apis/"
+        var BASE_URL = "https://reqres.in/"
 
         fun create() : ApiInterface {
 
