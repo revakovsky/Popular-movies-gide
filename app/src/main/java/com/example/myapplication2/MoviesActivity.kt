@@ -5,9 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MoviesActivity : AppCompatActivity() {
 
@@ -33,26 +30,8 @@ class MoviesActivity : AppCompatActivity() {
         // This will pass the ArrayList to our Adapter
         val adapter = CustomAdapter(data)
 
-        // Setting the Adapter with the recyclerview    
+        // Setting the Adapter with the recyclerview
         recyclerview.adapter = adapter
-
-
-        //include retrofit in our code
-        val apiInterface = ApiInterface.create().getMovies()
-
-        //apiInterface.enqueue( Callback<List<Movie>>())
-        apiInterface.enqueue( object : Callback<TestingDataClass> {
-            override fun onResponse(call: Call<TestingDataClass>?, response: Response<TestingDataClass>?) {
-                Log.d("testLogs" , "onResponse: success ${response?.body()?.data?.first_name}")
-//                if(response?.body() != null)
-//                    recyclerAdapter.setMovieListItems(response.body()!!)
-            }
-
-            override fun onFailure(call: Call<TestingDataClass>?, t: Throwable?) {
-                Log.d("testLogs" , "onFailure: fail ${t?.message}")
-            }
-        })
-
     }
 
     override fun onBackPressed() {
