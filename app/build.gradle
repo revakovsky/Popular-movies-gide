@@ -47,5 +47,16 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.0.1')
     implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
 
+    // for adding recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    // for adding cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //added the retrofit dependency
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    //added the GSON converter from retrofit is used to convert the JSON response from the server
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
 }
