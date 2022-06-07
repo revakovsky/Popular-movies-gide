@@ -59,4 +59,5 @@ dependencies {
     //added the GSON converter from retrofit is used to convert the JSON response from the server
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
