@@ -1,5 +1,6 @@
 package com.example.myapplication2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -30,6 +31,8 @@ class MoviesActivity : AppCompatActivity() {
         // the image with the count of view
         for (i in 1..20) {
             data.add(ItemsViewModel(R.drawable.ic_launcher_foreground, "Item " + i))
+
+
         }
 
 
@@ -52,16 +55,18 @@ class MoviesActivity : AppCompatActivity() {
                 Log.d("testLogs" , "onFailure: fail ${t?.message}")
             }
 
-            override fun onItemClick(position: Int) {
-                Toast.makeText(this@MoviesActivity, "click $position", Toast.LENGTH_SHORT).show()
+            override fun onItemClick(id: Int) {
+                val intent = Intent(this@MoviesActivity, MoviesDetailsActivity::class.java)
+                intent.putExtra("id", id)
+                startActivity(intent)
             }
         })
 
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        this.finishAffinity()
-        Log.d("testLogs", "application is closed")
-    }
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//        this.finishAffinity()
+//        Log.d("testLogs", "application is closed")
+//    }
 }

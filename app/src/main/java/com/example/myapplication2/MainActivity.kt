@@ -27,23 +27,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val intentToAnotherScreen = Intent(this, MoviesActivity::class.java)
         startActivity(intentToAnotherScreen)
         Log.d("testLogs", "in onCreate")
 
-//        database = Firebase.database.reference  //инициализация базы данных через загруженную библиотеку
-//
-//        val providers = arrayListOf(  //создаем список с возможными вариантами регистрации пользователя
-//            AuthUI.IdpConfig.EmailBuilder().build(),
-//            AuthUI.IdpConfig.GoogleBuilder().build()
-//            )
-//
-//        // Create and launch sign-in intent
-//        val signInIntent = AuthUI.getInstance()
-//            .createSignInIntentBuilder()
-//            .setAvailableProviders(providers)
-//            .build()  //создали интент и передали ему список с вариантами регистрации
-//        signInLauncher.launch(signInIntent) //запустили экран firebase auth
+        database = Firebase.database.reference  //инициализация базы данных через загруженную библиотеку
+
+        val providers = arrayListOf(  //создаем список с возможными вариантами регистрации пользователя
+            AuthUI.IdpConfig.EmailBuilder().build(),
+            AuthUI.IdpConfig.GoogleBuilder().build()
+            )
+
+        // Create and launch sign-in intent
+        val signInIntent = AuthUI.getInstance()
+            .createSignInIntentBuilder()
+            .setAvailableProviders(providers)
+            .build()  //создали интент и передали ему список с вариантами регистрации
+        signInLauncher.launch(signInIntent) //запустили экран firebase auth
 
     }
 
@@ -59,8 +60,6 @@ class MainActivity : AppCompatActivity() {
                 val uid = it.uid  //извлекаем uid нашего пользователя из записи в базе данных
                 val firebaseUser = User(email, uid)  //создаем новый объект User на основании созданного в программе класса
                 database.child("users").child(uid).setValue(firebaseUser) //сохраняем нашего пользователя в базу данных firebase realtime
-
-
             }
 
         } else {  //если результат не ОК должны обработать ошибку
@@ -73,4 +72,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//        this.finishAffinity()
+//        Log.d("testLogs", "application is closed")
+//    }
+    
 }
