@@ -11,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication2">
         <activity
-            android:name=".MoviesDetailsActivity"
+            android:name=".view.MoviesDetailsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.MoviesActivity"
             android:exported="false" />
         <activity
-            android:name=".MoviesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

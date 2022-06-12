@@ -113,7 +113,7 @@
                 />
 
             <TextView
-                android:id="@+id/movies_details_body_container_description"
+                android:id="@+id/movies_details_body_container_overview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="description description description description description description description description description description description description "
